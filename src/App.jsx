@@ -35,44 +35,47 @@ function App() {
   return (
     <div className={style.bg}>
       <div className={style.container}>
-        <h3 className={style.heading}>Todo App</h3>
-        <form
-          onSubmit={handleSubmit}
-          className={style.form}
-        >
-          <input
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            type="text"
-            className={style.input}
-            placeholder="Add todo"
-          />
-          <button
-            type="button"
-            className={style.plusButton}
+        <div>
+          <h3 className={style.heading}>Todo App</h3>
+          <form
+            onSubmit={handleSubmit}
+            className={style.form}
           >
-            <AiOutlinePlus size={30} />
-          </button>
-        </form>
-        <ul>
-          {todos.map((todo) => (
-            <RenderTodo
-              key={todo.id}
-              todo={todo}
-              toggleComplete={toggleComplete}
-              deleteTodo={deleteTodo}
-              editTodo={editTodo}
+            <input
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              type="text"
+              className={style.input}
+              placeholder="Add todo"
             />
-          ))}
-        </ul>
-        {todos.length < 1 ? null : (
-          <p className={style.count}>
-            You have
-            {todos.length}
-            {' '}
-            todos
-          </p>
-        )}
+            <button
+              type="button"
+              className={style.plusButton}
+            >
+              <AiOutlinePlus size={30} />
+            </button>
+          </form>
+          <ul>
+            {todos.map((todo) => (
+              <RenderTodo
+                key={todo.id}
+                todo={todo}
+                toggleComplete={toggleComplete}
+                deleteTodo={deleteTodo}
+                editTodo={editTodo}
+              />
+            ))}
+          </ul>
+          {todos.length < 1 ? null : (
+            <p className={style.count}>
+              You have
+              {' '}
+              {todos.length}
+              {' '}
+              todos
+            </p>
+          )}
+        </div>
       </div>
     </div>
   );

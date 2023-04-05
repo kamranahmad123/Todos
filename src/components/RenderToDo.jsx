@@ -14,7 +14,7 @@ const RenderTodo = ({
   const handleKeyUp = (event) => {
     if (event.key === 'Enter') {
       const updatedTodo = { ...todo, text };
-      editTodo(event, updatedTodo);
+      editTodo(updatedTodo);
     }
   };
   return (
@@ -31,10 +31,12 @@ const RenderTodo = ({
           onChange={handleInputChange}
           onKeyUp={handleKeyUp}
         />
+
       </div>
       <button type="button" onClick={() => deleteTodo(todo.id)}>
         <FaRegTrashAlt />
       </button>
+
     </li>
   );
 };
